@@ -11,5 +11,7 @@ Delay 20
 k = GetLastClick()
 If k==71 then
 
+KeyDown "F", 1
+
 
 loop
