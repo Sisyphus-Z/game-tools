@@ -4,8 +4,10 @@ k = GetLastClick()
 TracePrint(k)
 If k==32773 or k--32774 Then
 TracePrint(1111111)
-For i=1 to 15 step 1
-KeyDown "Shift", 1
+For i = 1 To 15 Step 1
+	KeyDown "Shift", 1
+Next
+
 Delay 20
 
 k = GetLastClick()
