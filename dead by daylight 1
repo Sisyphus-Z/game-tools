@@ -1,9 +1,10 @@
-
+Do
 Delay 200
 k = GetLastClick()
 TracePrint(k)
 If k==32773 or k==32774 Then
-TracePrint(1111111)
+TracePrint (1111111)
+End If
 For i = 1 To 15 Step 1
 	KeyDown "Shift", 1
 	Delay 20
@@ -16,3 +17,4 @@ If k==71 then
 
 KeyDown "F", 1
 
+loop
