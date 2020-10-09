@@ -1,0 +1,28 @@
+Do
+a = GetLastClick()
+
+If a = 32773 or a = 32774 Then 
+	
+	KeyDown "Shift", 1	
+	
+	
+	
+	For i= 0 To 20
+	KeyDown "Shift", 1	
+	Delay 100
+	Next
+	
+	
+	KeyUp "F", 1
+	TracePrint "按下了shift"
+End If
+
+a=GetLastKey()
+//ffTracePrint a
+If a = 71 Then	
+	KeyDown "F", 1
+	TracePrint "按下了F"
+
+End If
+Delay 50
+Loop

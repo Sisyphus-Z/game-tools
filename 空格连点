@@ -1,0 +1,4 @@
+Do
+KeyPress "Space", 1
+Delay 200
+Loop
