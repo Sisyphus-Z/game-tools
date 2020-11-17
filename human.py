@@ -13,12 +13,16 @@ keyboard1=keyboard.Controller()
 # t_temp=threading.Thread(target=temp)
 
 def on_click(x, y, button, pressed):
-    if str(button) == 'Button.right' and pressed==True:
+    if str(button) == 'Button.right' :
         print('按下左shift')
         keyboard1.press(keyboard.Key.shift_l)
 
 
+
 def on_press(key):
+    print(key)
+    if str(key)=="Key.shift":
+        keyboard1.press('l')
     if str(key)=="'g'":
         print('按下f')
         keyboard1.press('f')
@@ -28,7 +32,11 @@ def on_press(key):
     #     t_temp.join
 
 def on_release(key):
-    pass
+    print('弹起'+str(key))
+
+    if str(key) == "Key.shift":
+        keyboard1.release('l')
+
 
 
 def listen_mouse():
