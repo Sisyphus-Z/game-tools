@@ -1,3 +1,6 @@
+# 使用：1、运行前除了python还需安装第三方库pynput（建议pip安装）
+#       2、直接运行
+
 import threading
 import time
 
