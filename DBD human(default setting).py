@@ -24,7 +24,7 @@ def space():
 
 
 def on_click(x, y, button, pressed):
-    if str(button) == 'Button.right' :
+    if str(button) == 'Button.right':
         print('按住奔跑键')
         keyboard1.press('l')
 
@@ -36,9 +36,10 @@ def on_press(key):
     if str(key)=="Key.shift":
         keyboard1.press('l')
 
-    elif str(key)=="'g'":
-        print('按住f')
-        keyboard1.press('f')
+    elif str(key)=="'f'":
+        #keyboard1.release('l')
+        print('按住鼠标左键')
+        mouse1.press(mouse.Button.left)
 
     elif str(key)=="'c'":
         print('开始空格连点+左右键摇晃')
@@ -50,7 +51,6 @@ def on_press(key):
 
 def on_release(key):
     #print('弹起'+str(key))
-
     if str(key) == "Key.shift":
         keyboard1.release('l')
 
