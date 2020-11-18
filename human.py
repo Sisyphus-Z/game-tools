@@ -5,34 +5,48 @@ from pynput import mouse,keyboard
 mouse1=mouse.Controller()
 keyboard1=keyboard.Controller()
 
-# def temp():
-#     while 1:
-#         keyboard1.press(keyboard.Key.space)
-#         keyboard1.release(keyboard.Key.space)
-#         time.sleep(2)
-# t_temp=threading.Thread(target=temp)
+start_space=False
+
+def space():
+    while 1:
+        while start_space==True:
+            keyboard1.press(keyboard.Key.space)
+            keyboard1.release(keyboard.Key.space)
+            keyboard1.press('a')
+            keyboard1.release('a')
+            keyboard1.press('d')
+            keyboard1.release('d')
+            time.sleep(0.05)
+        time.sleep(1)
+
 
 def on_click(x, y, button, pressed):
     if str(button) == 'Button.right' :
-        print('按下左shift')
+        print('按住奔跑键')
         keyboard1.press(keyboard.Key.shift_l)
 
 
 
 def on_press(key):
-    print(key)
+    #print(key)
+    global start_space
     if str(key)=="Key.shift":
         keyboard1.press('l')
-    if str(key)=="'g'":
-        print('按下f')
+
+    elif str(key)=="'g'":
+        print('按住f')
         keyboard1.press('f')
 
-    # if str(key)=="'b'":
-    #     t_temp.start()
-    #     t_temp.join
+    elif str(key)=="'c'":
+        print('开始空格连点+左右键摇晃')
+        start_space=True
+    elif str(key)=="'v'":
+        print('停止空格连点+左右键摇晃')
+        start_space=False
+
 
 def on_release(key):
-    print('弹起'+str(key))
+    #print('弹起'+str(key))
 
     if str(key) == "Key.shift":
         keyboard1.release('l')
@@ -55,8 +69,10 @@ t_m.start()
 t_k=threading.Thread(target=listen_keyboard)
 t_k.start()
 
+t_space=threading.Thread(target=space)
+t_space.start()
 
 
+t_space.join()
 t_m.join()
 t_k.join()
-
