@@ -1,6 +1,3 @@
-# 使用：1、运行前除了python3还需安装第三方库pynput（建议pip安装）
-#       2、直接运行
-
 import threading
 import time
 
@@ -15,10 +12,10 @@ def space():
         while start_space==True:
             keyboard1.press(keyboard.Key.space)
             keyboard1.release(keyboard.Key.space)
-            keyboard1.press('a')
-            keyboard1.release('a')
-            keyboard1.press('d')
-            keyboard1.release('d')
+            # keyboard1.press('a')
+            # keyboard1.release('a')
+            # keyboard1.press('d')
+            # keyboard1.release('d')
             time.sleep(0.05)
         time.sleep(1)
 
@@ -42,10 +39,10 @@ def on_press(key):
         mouse1.press(mouse.Button.left)
 
     elif str(key)=="'c'":
-        print('开始空格连点+左右键摇晃')
+        print('开始空格连点')
         start_space=True
     elif str(key)=="'v'":
-        print('停止空格连点+左右键摇晃')
+        print('停止空格连点')
         start_space=False
 
 
