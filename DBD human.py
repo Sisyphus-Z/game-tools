@@ -13,10 +13,10 @@ def space():
             keyboard1.press(keyboard.Key.space)
             keyboard1.release(keyboard.Key.space)
 
-            keyboard1.press('a')
+            #keyboard1.press('a')
             #keyboard1.release('a')
 
-            keyboard1.press('d')
+            #keyboard1.press('d')
             #keyboard1.release('d')
             time.sleep(0.05)
         time.sleep(1)
