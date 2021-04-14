@@ -1,3 +1,5 @@
+parameter1=4
+
 import threading
 import time
 
@@ -5,6 +7,8 @@ from pynput import mouse,keyboard
 mouse1=mouse.Controller()
 
 keyboard1=keyboard.Controller()
+
+
 
 
 mouse_pos=(0,0)
@@ -23,12 +27,17 @@ def on_press(key):
 
 
     global mouse_pos
-    if str(key)=="'d'":
+    if str(key)=="'e'":
         mouse_pos=mouse1.position
         print(mouse_pos)
-    if str(key)=="'a'":
+    elif str(key)=="'q'":
         mouse1.position=mouse_pos
-
+    elif str(key)=="'a'":
+        mouse1.position = (mouse1.position[0] - parameter1,mouse1.position[1])
+        mouse1.click(mouse.Button.left, 1)
+    elif str(key)=="'d'":
+        mouse1.position = (mouse1.position[0] + parameter1, mouse1.position[1])
+        mouse1.click(mouse.Button.left, 1)
 def on_release(key):
     #print('弹起'+str(key))
     pass
