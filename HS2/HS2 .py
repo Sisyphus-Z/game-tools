@@ -1,4 +1,4 @@
-parameter1=4
+parameter1=6
 
 import threading
 import time
@@ -32,12 +32,19 @@ def on_press(key):
         print(mouse_pos)
     elif str(key)=="'q'":
         mouse1.position=mouse_pos
-    elif str(key)=="'a'":
-        mouse1.position = (mouse1.position[0] - parameter1,mouse1.position[1])
-        mouse1.click(mouse.Button.left, 1)
-    elif str(key)=="'d'":
-        mouse1.position = (mouse1.position[0] + parameter1, mouse1.position[1])
-        mouse1.click(mouse.Button.left, 1)
+    elif str(key) == "Key.alt_l":
+        mouse1.press(mouse.Button.left)
+    elif str(key) == "'s'":
+        mouse1.release(mouse.Button.left)
+    elif str(key) == "'a'":
+        mouse1.move(-parameter1, 0)
+        mouse_pos = mouse1.position
+    elif str(key) == "'d'":
+        mouse1.move(parameter1, 0)
+        mouse_pos = mouse1.position
+
+
+
 def on_release(key):
     #print('弹起'+str(key))
     pass
