@@ -1,4 +1,4 @@
-parameter1=2
+parameter1=1
 
 import threading
 import time
