@@ -11,14 +11,14 @@ keyboard1=keyboard.Controller()
 
 
 
-mouse_pos=(0,0)
-
+mouse_pos0=(0,0)
+mouse_pos1=(0,0)
 
 
 def on_click(x, y, button, pressed):
     print(str(button))
-    if str(button)=="Button.x1":
-        mouse1.position=mouse_pos
+    # if str(button)=="Button.x1":
+    #     mouse1.position=mouse_pos
 
 
 
@@ -26,19 +26,21 @@ def on_press(key):
     print(key)
 
 
-    global mouse_pos
+    global mouse_pos0
+    global mouse_pos1
     if str(key)=="'e'":
-        mouse_pos=mouse1.position
-        print(mouse_pos)
+        mouse_pos0 = mouse1.position
+        mouse_pos1 = mouse1.position
+        print(mouse_pos0)
     elif str(key)=="'q'":
-        mouse1.position=mouse_pos
+        mouse1.position=mouse_pos0
 
     elif str(key) == "Key.alt_l":
-        mouse1.position=mouse_pos
+        mouse1.position=mouse_pos1
         mouse1.press(mouse.Button.left)
     elif str(key) == "'s'":
         mouse1.release(mouse.Button.left)
-        mouse_pos = mouse1.position
+        mouse_pos1 = mouse1.position
 
     elif str(key) == "'a'":
         mouse1.move(-parameter1, 0)
