@@ -28,7 +28,6 @@ def on_press(key):
     if str(key)=="'e'":
         mouse_pos0 = mouse1.position
         mouse_pos1 = mouse1.position
-        print(mouse_pos0)
     elif str(key)=="'q'":
         mouse1.position=mouse_pos0
 
