@@ -34,6 +34,7 @@ def on_press(key):
         mouse1.position=mouse_pos
 
     elif str(key) == "Key.alt_l":
+        mouse1.position=mouse_pos
         mouse1.press(mouse.Button.left)
     elif str(key) == "'s'":
         mouse1.release(mouse.Button.left)
