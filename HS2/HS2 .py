@@ -16,18 +16,15 @@ mouse_pos1=(0,0)
 
 
 def on_click(x, y, button, pressed):
-    print(str(button))
-    # if str(button)=="Button.x1":
-    #     mouse1.position=mouse_pos
-
+    pass
 
 
 def on_press(key):
     print(key)
 
-
     global mouse_pos0
     global mouse_pos1
+
     if str(key)=="'e'":
         mouse_pos0 = mouse1.position
         mouse_pos1 = mouse1.position
@@ -51,9 +48,7 @@ def on_press(key):
 
 
 def on_release(key):
-    #print('弹起'+str(key))
     pass
-
 
 
 def listen_mouse():
