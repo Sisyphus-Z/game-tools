@@ -5,21 +5,21 @@ from pynput import mouse,keyboard
 mouse1=mouse.Controller()
 keyboard1=keyboard.Controller()
 
-start_space=False
+#start_space=False
 
-def space():
-    while 1:
-        while start_space==True:
-            keyboard1.press(keyboard.Key.space)
-            keyboard1.release(keyboard.Key.space)
-
-            #keyboard1.press('a')
-            #keyboard1.release('a')
-
-            #keyboard1.press('d')
-            #keyboard1.release('d')
-            time.sleep(0.05)
-        time.sleep(1)
+# def space():
+#     while 1:
+#         while start_space==True:
+#             keyboard1.press(keyboard.Key.space)
+#             keyboard1.release(keyboard.Key.space)
+#
+#             #keyboard1.press('a')
+#             #keyboard1.release('a')
+#
+#             #keyboard1.press('d')
+#             #keyboard1.release('d')
+#             time.sleep(0.05)
+#         time.sleep(1)
 
 
 def on_click(x, y, button, pressed):
@@ -38,12 +38,12 @@ def on_press(key):
         print('按住f')
         keyboard1.press('f')
 
-    elif str(key)=="'c'":
-        print('开始空格连点+左右键摇晃')
-        start_space=True
-    elif str(key)=="'v'":
-        print('停止空格连点+左右键摇晃')
-        start_space=False
+    #elif str(key)=="'c'":
+        #print('开始空格连点+左右键摇晃')
+        #start_space=True
+    #elif str(key)=="'v'":
+        #print('停止空格连点+左右键摇晃')
+        #start_space=False
 
 
 def on_release(key):
@@ -70,10 +70,10 @@ t_m.start()
 t_k=threading.Thread(target=listen_keyboard)
 t_k.start()
 
-t_space=threading.Thread(target=space)
-t_space.start()
+# t_space=threading.Thread(target=space)
+# t_space.start()
 
 
-t_space.join()
+#t_space.join()
 t_m.join()
 t_k.join()
