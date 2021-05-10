@@ -35,6 +35,7 @@ def on_press(key):
         keyboard1.press('l')
 
     elif str(key)=="'g'":
+        keyboard1.release('f')
         print('按住f')
         keyboard1.press('f')
 
