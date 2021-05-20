@@ -26,8 +26,20 @@ def on_press(key):
 def on_release(key):
     pass
 
+# time1=0
+#
+# def on_scroll(a,b,c,d):
+#     global time1
+#     if d==-1 and time.time()-time1>1:
+#         choose_first()
+#         time1=time.time()
+
 def listen_mouse():
     with mouse.Listener(on_click=on_click) as listener:
+        listener.join()
+
+def listen_mouse_scroll():
+    with mouse.Listener(on_scroll=on_scroll) as listener:
         listener.join()
 
 def listen_keyboard():
@@ -39,11 +51,11 @@ def listen_keyboard():
 t_m=threading.Thread(target=listen_mouse)
 t_m.start()
 
-t_k=threading.Thread(target=listen_keyboard)
-t_k.start()
+t_K=threading.Thread(target=listen_keyboard)
+t_K.start()
 
 
 
 
-# t_m.join()
-t_k.join()
+t_m.join()
+t_K.join()
