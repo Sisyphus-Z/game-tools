@@ -6,15 +6,22 @@ mouse1=mouse.Controller()
 keyboard1=keyboard.Controller()
 
 
+def choose_first():
+    mouse_pos0 = mouse1.position
+    mouse1.position = (281, 641)
+    time.sleep(0.07)
+    mouse1.click(button=mouse.Button.left)
+
+    mouse1.position = mouse_pos0
 def on_click(x, y, button, pressed):
-    print(mouse1.position)
+    if pressed:
+        print(button)
+    if str(button) == 'Button.x1' and pressed:
+        choose_first()
 
 def on_press(key):
     if str(key)=="Key.f4":
-        mouse_pos0=mouse1.position
-        mouse1.position=(281, 641)
-        mouse1.click(button=mouse.Button.left)
-        mouse1.position=mouse_pos0
+        choose_first()
 
 def on_release(key):
     pass
@@ -29,8 +36,8 @@ def listen_keyboard():
 
 
 
-# t_m=threading.Thread(target=listen_mouse)
-# t_m.start()
+t_m=threading.Thread(target=listen_mouse)
+t_m.start()
 
 t_k=threading.Thread(target=listen_keyboard)
 t_k.start()
