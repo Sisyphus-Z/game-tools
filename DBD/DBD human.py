@@ -23,9 +23,10 @@ keyboard1=keyboard.Controller()
 
 
 def on_click(x, y, button, pressed):
-    if str(button) == 'Button.right' :
+    if str(button) == 'Button.right':
         print('按住奔跑键')
         keyboard1.press('l')
+        keyboard1.release('f')
 
 
 def on_press(key):
