@@ -20,7 +20,8 @@ def on_click(x, y, button, pressed):
         choose_first()
 
 def on_press(key):
-    if str(key)=="Key.f4":
+    
+    if str(key)=="Key.space":
         choose_first()
 
 def on_release(key):
