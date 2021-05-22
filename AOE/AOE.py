@@ -49,8 +49,8 @@ def listen_keyboard():
 
 
 
-t_m=threading.Thread(target=listen_mouse)
-t_m.start()
+# t_m=threading.Thread(target=listen_mouse)
+# t_m.start()
 
 t_K=threading.Thread(target=listen_keyboard)
 t_K.start()
@@ -58,5 +58,5 @@ t_K.start()
 
 
 
-t_m.join()
+# t_m.join()
 t_K.join()
