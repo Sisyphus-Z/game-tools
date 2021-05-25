@@ -21,7 +21,7 @@ def on_click(x, y, button, pressed):
 
 def on_press(key):
     
-    if str(key)=="Key.space":
+    if str(key)=="'`'":
         choose_first()
 
 def on_release(key):
