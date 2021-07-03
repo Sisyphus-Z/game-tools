@@ -11,24 +11,32 @@ keyboard1=keyboard.Controller()
 
 press_m=False
 last_realse_mouse_by_keyf=False
+last_press_mouse_by_auto_run_bar=False
 
 def on_click(x, y, button, pressed):
 
     global press_m
     global last_realse_mouse_by_keyf
+    global last_press_mouse_by_auto_run_bar
     # if str(button) == 'Button.left' and pressed==True:
     #     press_m=True
     if str(button) == 'Button.left' and pressed==False :
 
-        # 通过按下f的松开左键不触发置press为False
+        # 通过按下f的松开左键不触发置press_m为False
         if last_realse_mouse_by_keyf == True:
             pass
+
+        # 先按鼠标左键再按自动奔跑键时，松开鼠标左键后让鼠标左键也能继续按下
+        elif last_press_mouse_by_auto_run_bar==True:
+            mouse1.press(button=mouse.Button.left)
+            last_press_mouse_by_auto_run_bar=False
 
         # 其他情况松开左键（比如用户按鼠标）触发：
         else:
             press_m=False
 
 
+        last_press_mouse_by_auto_run_bar = False
 
 
 
@@ -37,10 +45,16 @@ def on_press(key):
 
     global press_m
     global last_realse_mouse_by_keyf
+    global last_press_mouse_by_auto_run_bar
 
-    if str(key) == auto_run_bar:
+    if str(key) == auto_run_bar and press_m==False:
+        last_press_mouse_by_auto_run_bar = True
         mouse1.press(button=mouse.Button.left)
         press_m=True
+
+
+
+
     if str(key) == pickup_bar:
         last_realse_mouse_by_keyf = True
         mouse1.release(button=mouse.Button.left)
