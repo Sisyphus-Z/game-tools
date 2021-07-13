@@ -34,9 +34,9 @@ def on_press(key):
     elif str(key) == "Key.alt_l":
         mouse1.position=mouse_pos1
         mouse1.press(mouse.Button.left)
-    elif str(key) == "'s'":
-        mouse1.release(mouse.Button.left)
-        mouse_pos1 = mouse1.position
+    # elif str(key) == "'s'":
+    #     mouse1.release(mouse.Button.left)
+    #     mouse_pos1 = mouse1.position
 
     elif str(key) == "'a'":
         mouse1.move(-parameter1, 0)
@@ -47,7 +47,13 @@ def on_press(key):
 
 
 def on_release(key):
-    pass
+    print(key)
+    global mouse_pos0
+    global mouse_pos1
+
+    if str(key) == "Key.alt_l":
+        mouse1.release(mouse.Button.left)
+        mouse_pos1 = mouse1.position
 
 
 def listen_mouse():
